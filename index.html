@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>AI-X 심화반 16기 · 조별 프로젝트</title>
+<title>AI-X 심화반 · 조별 프로젝트</title>
 
 <!-- 본문·제목: Pretendard / 라벨: IBM Plex Mono -->
 <link rel="stylesheet" as="style" crossorigin
@@ -12,183 +12,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    /* --ink:#150F33; */
-    --ink:#EFEBFF;
-    --line:#3B3280;
-    --line-soft:#2A2260;
-    /* --text:#EFEBFF; */
-    /* --muted:#A79FD8; */
-    --text:#150F33;
-    --muted:#150F33;
-    --sig-1:#FF5FA2;
-    /* --sig-2:#4DD8FF; */
-    --sig-2:#26aef5;
-    --sig-3:#1d903d;
-    --sig-4:#2A2260;
-    /* --sig-4:#FFC94D; */
-    --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-    --sans:"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
-           system-ui, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{
-    background:
-      radial-gradient(820px 460px at 78% -12%, rgba(77,216,255,.15), transparent 62%),
-      radial-gradient(700px 420px at 8% 104%, rgba(255,95,162,.13), transparent 60%),
-      var(--ink);
-    color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;
-    min-height:100vh;padding:clamp(30px,6vw,36px) clamp(18px,5vw,52px) 44px;
-  }
-  .wrap{max-width:1060px;margin:0 auto}
-
-  /* ── 헤더 ───────────────────────────── */
-  .eyebrow{
-    font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--muted);
-    margin:0 0 22px;display:flex;align-items:center;gap:10px;
-  }
-  .eyebrow::before{content:"";width:26px;height:1px;background:var(--line)}
-
-  h1{
-    margin:0;font-weight:800;
-    font-size:clamp(40px,8.4vw,86px);line-height:.98;letter-spacing:-.035em;
-    color:var(--text);
-  }
-  h1 .en{letter-spacing:-.02em}          /* 라틴 구간은 자간을 조금 덜 조임 */
-  h1 .gi{color:var(--sig-2)}
-  .lede{margin:24px 0 0;max-width:44ch;font-size:clamp(15px,1.6vw,17px);
-        line-height:1.7;color:var(--muted);font-weight:400}
-
-  /* ── 조 목록 ────────────────────────── */
-  /* .teams{margin-top:clamp(46px,7vw,84px);border-top:1px solid var(--line-soft)} */
-  .teams{margin-top:clamp(46px,7vw,42px);border-top:1px solid var(--line-soft)}
-
-  .row{
-    --sig:var(--sig-1);
-    position:relative;display:grid;align-items:center;
-    /* gap:0 28px; */
-    grid-template-columns:auto 1fr auto;
-    padding:30px 8px;border-bottom:1px solid var(--line-soft);
-    text-decoration:none;color:inherit;
-    transition:padding-left .34s cubic-bezier(.2,.7,.3,1),border-color .34s ease;
-    opacity:0;transform:translateY(12px);
-    animation:rise .7s cubic-bezier(.2,.7,.3,1) forwards;
-  }
-  .row:nth-child(1){animation-delay:.06s}
-  .row:nth-child(2){animation-delay:.16s}
-  .row:nth-child(3){animation-delay:.26s}
-  @keyframes rise{to{opacity:1;transform:none}}
-
-  .row::after{
-    content:"";position:absolute;left:0;bottom:-1px;height:2px;width:100%;
-    background:var(--sig);transform:scaleX(0);transform-origin:left;
-    transition:transform .42s cubic-bezier(.2,.7,.3,1);
-  }
-  .row:hover,.row:focus-visible{padding-left:22px;border-bottom-color:transparent}
-  .row:hover::after,.row:focus-visible::after{transform:scaleX(1)}
-  .row:focus-visible{outline:2px solid var(--sig);outline-offset:6px;border-radius:6px}
-
-  .num{
-    font-weight:800;font-size:clamp(50px,8.5vw,74px);line-height:.86;letter-spacing:-.05em;
-    min-width:2ch;
-    color:transparent;-webkit-text-stroke:1.6px var(--sig);
-    transition:color .34s ease;
-  }
-  .row:hover .num,.row:focus-visible .num{color:var(--sig)}
-  .num em{font-style:normal;font-family:var(--mono);font-size:.26em;font-weight:500;
-          -webkit-text-stroke:0;color:var(--sig);margin-left:7px;vertical-align:1.1em;
-          letter-spacing:.06em}
-
-  .team{
-    margin:0 0 10px;font-family:var(--mono);font-size:12px;font-weight:500;
-    letter-spacing:.12em;color:var(--sig);display:flex;align-items:center;gap:9px;
-  }
-  .team::before{content:"";width:14px;height:1px;background:var(--sig);opacity:.6}
-
-  .title{margin:0;font-size:clamp(19px,2.4vw,25px);font-weight:700;letter-spacing:-.02em}
-  .desc{margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:52ch}
-  .stack{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0;list-style:none}
-  .stack li{font-family:var(--mono);font-size:11px;color:var(--muted);
-            border:1px solid var(--line);border-radius:6px;padding:3px 8px}
-
-  .go{
-    font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--sig);
-    white-space:nowrap;display:flex;align-items:center;gap:9px;opacity:.7;
-    transition:opacity .3s ease;
-  }
-  .go i{font-style:normal;transition:transform .34s cubic-bezier(.2,.7,.3,1)}
-  .row:hover .go,.row:focus-visible .go{opacity:1}
-  .row:hover .go i,.row:focus-visible .go i{transform:translateX(6px)}
-
-  footer{
-    margin-top:clamp(40px,6vw,36px);display:flex;flex-wrap:wrap;gap:10px 22px;
-    justify-content:space-between;font-family:var(--mono);font-size:12px;
-    color:var(--muted);letter-spacing:.04em;
-  }
-
-  @media (max-width:700px){
-    .row{grid-template-columns:auto 1fr;gap:0 18px;padding:24px 6px}
-    .go{grid-column:2;margin-top:14px}
-    .num{align-self:start}
-  }
-  @media (prefers-reduced-motion:reduce){
-    *{animation:none!important;transition:none!important}
-    .row{opacity:1;transform:none}
-  }
-</style>
+<link rel="stylesheet" as="style" href="./css/style.css">
 </head>
 <body>
 <div class="wrap">
 
   <header>
     <p class="eyebrow">발표자료</p>
-    <h1><span class="en">AI-X</span> 심화반<span class="gi"><br>16기</span><span style="color:var(--sig-1)"> 발표자료</span></h1>
-    <!-- <p class="lede">조별로 만든 프로젝트를 한곳에 모았습니다. 보고 싶은 조를 고르면 해당 사이트로 이동합니다.</p> -->
+    <h1><span class="en">AI-X</span><span style="color:var(--sig-1)"> 심화반</span><span class="gi"></h1>
+    <p class="lede">조별로 만든 프로젝트를 한곳에 모았습니다. 보고 싶은 조를 고르면 해당 사이트로 이동합니다.</p>
   </header>
 
   <main class="teams">
 
     <!-- ▼ 제목 · 설명 · 태그 · href 주소만 바꾸면 됩니다 -->
 
-    <a class="row" style="--sig:var(--sig-1)" href="http://ai-x-16.shelldocs.cloud/8_31" target="_blank" rel="noopener">
+    <a class="row" style="--sig:var(--sig-1)" href="ai-x-16/" target="_parent" rel="noopener">
       <span class="num">1<em>회</em></span>
       <div>
-        <p class="team">8월 31일 (월)</p>
-        <h2 class="title">미니프로젝트 발표</h2>
-        <p class="desc">미니프로젝트</p>
-      </div>
-      <span class="go">바로가기 <i>→</i></span>
-    </a>
-
-    <a class="row" style="--sig:var(--sig-4)" href="http://ai-x-16.shelldocs.cloud/9_7" target="_blank" rel="noopener">
-      <span class="num">2<em>회</em></span>
-      <div>
-        <p class="team">9월 7일 (월)</p>
-        <h2 class="title">기획 발표</h2>
-        <p class="desc">최종 프로젝트</p>
-      </div>
-      <span class="go">바로가기 <i>→</i></span>
-    </a>
-
-    <a class="row" style="--sig:var(--sig-2)" href="http://ai-x-16.shelldocs.cloud/9_23" target="_blank" rel="noopener">
-      <span class="num">3<em>회</em></span>
-      <div>
-        <p class="team">9월 23일 (수)</p>
-        <h2 class="title">중간 발표</h2>
-        <p class="desc">최종 프로젝트</p>
-      </div>
-      <span class="go">바로가기 <i>→</i></span>
-    </a>
-
-    <a class="row" style="--sig:var(--sig-3)" href="http://ai-x-16.shelldocs.cloud/10_20" target="_blank" rel="noopener">
-      <span class="num">4<em>회</em></span>
-      <div>
-        <p class="team">10월 20일 (화)</p>
-        <h2 class="title">최종 발표</h2>
-        <p class="desc">최종 프로젝트</p>
+        <p class="team">8월 22일 ~ 10월 20일</p>
+        <h2 class="title">심화반 16기</h2>
       </div>
       <span class="go">바로가기 <i>→</i></span>
     </a>
@@ -198,7 +41,7 @@
   </main>
 
   <footer>
-    <span>AI-X 심화반 16기 · 조별 프로젝트</span>
+    <span>AI-X 심화반 · 조별 프로젝트</span>
     <span>사이트가 열리지 않으면 각 조에 문의하세요</span>
   </footer>
 
