@@ -93,7 +93,7 @@ letter-spacing:.12em;color:var(--sig);display:flex;align-items:center;gap:9px;
 .team::before{content:"";width:14px;height:1px;background:var(--sig);opacity:.6}
 
 .title{margin:0;font-size:clamp(19px,2.4vw,25px);font-weight:700;letter-spacing:-.02em}
-.desc{margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:52ch}
+.desc{margin:9px 0 0;font-size:14.5px;line-height:1.6;color:var(--muted);max-width:60ch}
 .stack{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0;list-style:none}
 .stack li{font-family:var(--mono);font-size:11px;color:var(--muted);
         border:1px solid var(--line);border-radius:6px;padding:3px 8px}
