@@ -25,7 +25,7 @@ background:
     radial-gradient(700px 420px at 8% 104%, rgba(255,95,162,.13), transparent 60%),
     var(--ink);
 color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;
-min-height:100vh;padding:clamp(30px,6vw,36px) clamp(18px,5vw,52px) 44px;
+min-height:100vh;padding:clamp(60px,6vw,36px) clamp(18px,5vw,52px) 44px;
 }
 .wrap{max-width:1060px;margin:0 auto}
 
